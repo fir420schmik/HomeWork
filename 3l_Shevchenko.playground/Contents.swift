@@ -3,6 +3,7 @@ import UIKit
 
 enum Transmission {
     case manual, auto
+    
 }
 
 enum OnOffEngine {
@@ -11,6 +12,7 @@ enum OnOffEngine {
 
 enum DoorState {
     case open, closed
+    
 }
 
 enum Windows {
@@ -52,10 +54,9 @@ struct Car {
         self.doorState = .closed
         self.mp3 = true
     }
-    
+   
     mutating func changeSpaceInTrunk (to value: Double) {
          print("Обьем багажника станет \(value) л")
-//     spaceInTrunk = value
 }
 
 func printInfo() {
@@ -65,7 +66,7 @@ func printInfo() {
     print("Цвет модели: \(self.color)")
     print("Страна производитель: \(self.assembly)")
     print("Год выпуска: \(self.year)")
-//    print("Обьем багажника: \(self.spaceInTrunk) л")
+    print("Поддержка Mp3: \(self.mp3 ? "Есть" : "Отсутствует")")
     
     switch self.transmission {
         case .auto:
@@ -73,14 +74,12 @@ func printInfo() {
         default:
             print("Трансмиссия: механика")
     }
-    
     switch self.onOffEngine {
         case .on:
             print("Двигатель: включен")
         default:
             print("Двигатель: выключен")
     }
-    
     switch self.doorState {
         case .open:
             print("Двери: открыты")
@@ -93,22 +92,12 @@ func printInfo() {
             print("Окна: опущены")
         default:
             print("Окна: подняты")
-    }
-    
-    print("Поддержка Mp3: \(self.mp3 ? "Есть" : "Отсутствует")")
-    
 }
 }
-
-
-
-var car1 = Car(name: "Honda", color: "red", year: 1992, mp3: true, assembly: "Japan", transmission: .auto, onOffEngine: .off, windows: .closed, doorState: .open)
+}
+let car1 = Car(name: "Honda", color: "red", year: 1992, mp3: true, assembly: "Japan", transmission: .auto, onOffEngine: .off, windows: .closed, doorState: .open)
 car1.printInfo()
-
-var car2 = Car(name: "Aston Martin")
-car2.printInfo()
-
-
+car1.printInfo()
 
 
 
